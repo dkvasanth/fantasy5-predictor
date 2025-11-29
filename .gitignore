@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Data files
+fantasy5_data.csv
+fantasy5_history.json
+*.log
+
+# Screenshots
+debug_screenshot.png
+
+# Email config (contains sensitive data)
+# Note: Users should update email settings after cloning
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+tmp/
+temp/
