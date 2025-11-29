@@ -27,7 +27,7 @@ CONFIG = {
         'smtp_port': 587,
         'sender_email': 'vasanthishere@gmail.com',
         'sender_password': 'hwnpwxydkmatjjnj',
-        'recipient_email': 'dkvasanth@gmail.com',
+        'recipient_emails': ['dkvasanth@gmail.com', '01.nikil@gmail.com'],
     }
 }
 
@@ -233,7 +233,7 @@ class Fantasy5AutoPredictor:
             msg = MIMEMultipart('alternative')
             msg['Subject'] = f"🎰 Fantasy 5 Daily Predictions - {datetime.now().strftime('%B %d, %Y')}"
             msg['From'] = CONFIG['email']['sender_email']
-            msg['To'] = CONFIG['email']['recipient_email']
+            msg['To'] = ', '.join(CONFIG['email']['recipient_emails'])
 
             html = f"""
             <html>
@@ -317,7 +317,7 @@ class Fantasy5AutoPredictor:
 
             msg.attach(MIMEText(html, 'html'))
 
-            print(f"📧 Sending email to {CONFIG['email']['recipient_email']}...")
+            print(f"📧 Sending email to {', '.join(CONFIG['email']['recipient_emails'])}...")
             with smtplib.SMTP(CONFIG['email']['smtp_server'], CONFIG['email']['smtp_port']) as server:
                 server.starttls()
                 server.login(CONFIG['email']['sender_email'], CONFIG['email']['sender_password'])
